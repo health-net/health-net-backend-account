@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
-import { AuthenticationService, EmailLoginRequestDto } from './services/authentication-service';
-import { Auth0AuthenticationService } from './services/auth0-authentication-service';
+import { AccountService, EmailLoginRequestDto } from './services/account-service';
+import { Auth0AccountService } from './services/auth0-account-service';
 
 const app: express.Application = express();
 
@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const authentication: AuthenticationService = new Auth0AuthenticationService(
+const accountService: AccountService = new Auth0AccountService(
     process.env.DOMAIN || 'healthnet.eu.auth0.com',
     process.env.GRANT_TYPE || 'http://auth0.com/oauth/grant-type/password-realm',
     process.env.CLIENT_ID || 'Ka2UsJrrRL0rjJIfe35TKOsvWcni81Q5',
@@ -18,13 +18,13 @@ const authentication: AuthenticationService = new Auth0AuthenticationService(
 );
 
 app.listen(port, () => {
-    console.log(`Health-Net authentication service listening on port ${port}!`);
+    console.log(`Health-Net account service listening on port ${port}!`);
 });
 
-app.post('/login/email', async (req: Request, res: Response, next: NextFunction) => {
+app.post('/account/login/email', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const request: EmailLoginRequestDto = req.body;
-        res.status(201).json(await authentication.login(request));
+        res.status(201).json(await accountService.login(request));
     } catch (error) {
         res.sendStatus(401);
     }

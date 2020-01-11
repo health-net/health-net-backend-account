@@ -1,4 +1,4 @@
-export interface AuthenticationService {
+export interface AccountService {
     login(request: EmailLoginRequestDto): Promise<LoginResponseDto>;
 }
 

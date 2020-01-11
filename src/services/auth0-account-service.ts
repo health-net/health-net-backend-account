@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
-import { AuthenticationService, EmailLoginRequestDto, LoginResponseDto } from './authentication-service';
+import { AccountService, EmailLoginRequestDto, LoginResponseDto } from './account-service';
 
-export class Auth0AuthenticationService implements AuthenticationService {
+export class Auth0AccountService implements AccountService {
     private readonly domain: string;
     private readonly grantType: string;
     private readonly clientId: string;
