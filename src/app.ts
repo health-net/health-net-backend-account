@@ -22,7 +22,7 @@ app.listen(port, () => {
     console.log(`Health-Net account service listening on port ${port}!`);
 });
 
-app.post('/account/login/email', async (req: Request, res: Response, next: NextFunction) => {
+app.post('/account/token/email', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const request: EmailLoginRequestDto = req.body;
         res.status(201).json(await accountService.login(request));
