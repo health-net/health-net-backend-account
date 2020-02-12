@@ -1,12 +1,13 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { AccountService, EmailLoginRequestDto } from './services/account-service';
 import { Auth0AccountService } from './services/auth0-account-service';
-
+var morgan = require('morgan');
 const app: express.Application = express();
 
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(morgan('common'));
 
 const accountService: AccountService = new Auth0AccountService(
     process.env.DOMAIN || 'healthnet.eu.auth0.com',
