@@ -21,12 +21,20 @@ npm install
 
 ## Deployment
 
-1. Set environment variables inline and run service
+1. Compile TypeScript
+```
+npm run tsc
+```
+2. Set environment variables inline and start service
+```
+SERVICE_PORT=3000 ... npm start
+```
 
 ## Details
 ### Environment Variables
 | Name          | Description                     | Default value                                    |
 |---------------|---------------------------------|--------------------------------------------------|
+| SERVICE_PORT  | Service port                    | 3000
 | DOMAIN        | Auth0 domain URL                | healthnet.eu.auth0.com                           |
 | GRANT_TYPE    | Auth0 authorization flow        | http://auth0.com/oauth/grant-type/password-realm |
 | CLIENT_ID     | Auth0 application client ID     | Ka2UsJrrRL0rjJIfe35TKOsvWcni81Q5                 |
