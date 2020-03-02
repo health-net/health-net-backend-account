@@ -26,6 +26,11 @@
   "dependencies": {
     "axios": "^0.19.1",
     "express": "^4.17.1",
+    "typescript": "^3.7.4",
     "morgan": "^1.9.1"
-  }
+  },
+  
+	  "engines":{
+		  "node":"12.x"
+	  }
 }
