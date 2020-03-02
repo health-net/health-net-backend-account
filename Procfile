@@ -1,1 +1,1 @@
-web: npm run tsc && npm run start
+web: node build/app.js
